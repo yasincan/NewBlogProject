@@ -1,0 +1,86 @@
+﻿@model Article
+
+@{
+    ViewBag.Title = "Detay";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @if (Model.IsActive == true)
+            {
+                <b class="text-danger">@Html.DisplayName("Aktif")</b>
+
+            }
+            else
+            {
+                <b class="text-danger">@Html.DisplayName("Pasif")</b>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        @if (Model.UpdatedDate != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+        }
+        @if (Model.DeletedDate != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.DeletedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DeletedDate)
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

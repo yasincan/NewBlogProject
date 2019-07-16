@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Article>
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = "Makaleler";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="article">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.Title.Length > 200)
+                {
+                    @Html.DisplayFor(modelItem => item.Title.Substring(0, 200))
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Title)
+                }
+            </td>
+            <td>
+                @if (item.Text.Length > 200)
+                {
+                    @Html.Raw(Regex.Replace(item.Text, @"<[^>]*>", "").Substring(0, 200));
+                }
+                else
+                {
+                    @Html.Raw(item.Text)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.IsActive == true)
+                {
+                    @Html.DisplayFor(modelItem => item.IsActive) @Html.DisplayName(" Aktif")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.IsActive) @Html.DisplayName(" Pasif")
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+
+}
+
