@@ -12,8 +12,8 @@ namespace NewBlogProject.AdminUI.Controllers
 {
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        internal ApplicationSignInManager _signInManager;
+        internal ApplicationUserManager _userManager;
 
         public AccountController()
         {

@@ -14,8 +14,8 @@ namespace NewBlogProject.Data.Repository
 {
     public class Repository<T> : IRepository<T> where T : ModelBase, new()
     {
-        private readonly BlogContext _context;
-        private readonly DbSet<T> _dbSet;
+        internal readonly BlogContext _context;
+        internal readonly DbSet<T> _dbSet;
 
         public Repository(BlogContext context)
         {
@@ -43,22 +43,22 @@ namespace NewBlogProject.Data.Repository
             return entity;
         }
 
-        public virtual void Update(T entityToUpdate)
+        public virtual void Update(T entity)
         {
-            _dbSet.Attach(entityToUpdate);
-            _context.Entry(entityToUpdate).State = EntityState.Modified;
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(Guid EntityId)
+        public virtual void Delete(Guid entityId)
         {
-            T entityToDelete = _dbSet.Find(EntityId);
+            T entityToDelete = _dbSet.Find(entityId);
             Delete(entityToDelete);
         }
 
-        public virtual void Delete(T Entity)
+        public virtual void Delete(T entity)
         {
-            _dbSet.Attach(Entity);
-            _context.Entry(Entity).State = System.Data.Entity.EntityState.Modified;
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
 
             
         }

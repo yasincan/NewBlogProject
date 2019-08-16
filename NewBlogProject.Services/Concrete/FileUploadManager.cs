@@ -8,7 +8,9 @@ namespace NewBlogProject.Services.Concrete
 {
     public class FileUploadManager : IFileUploadManager
     {
-        //TODO : upload işlemleri için de kullanılabilir
+        /// <summary>
+        ///  upload işlemleri için de kullanılabilir
+        /// </summary>
         public void UploadFile(HttpPostedFileBase file, string fileName, string path)
         {
             var directoryPath = HttpContext.Current.Server.MapPath(path);

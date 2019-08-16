@@ -8,10 +8,9 @@ namespace NewBlogProject.AdminUI.Controllers
 {
     public class HomeController : BaseController
     {
-
         public ActionResult Index()
         {
-            ViewBag.Text = "New Blog Anasayfa";
+            ViewBag.Text = "New Blog Project";
             return View();
         }
     }

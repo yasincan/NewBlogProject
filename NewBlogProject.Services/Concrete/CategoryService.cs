@@ -4,15 +4,12 @@ using NewBlogProject.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewBlogProject.Services.Concrete
 {
     public class CategoryService : ICategoryService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        internal readonly IUnitOfWork _unitOfWork;
         public CategoryService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -39,7 +36,7 @@ namespace NewBlogProject.Services.Concrete
 
         public IEnumerable<Category> Select()
         {
-            return _unitOfWork.Repository<Category>().Select().OrderBy(c=>c.CreatedDate);
+            return _unitOfWork.Repository<Category>().Select().Where(c=>c.DeletedDate==null).OrderByDescending(c=>c.CreatedDate);
         }
 
         public IEnumerable<Category> ListCategory()
@@ -49,7 +46,7 @@ namespace NewBlogProject.Services.Concrete
 
         public bool Update(Category category)
         {
-            category.UpdatedDate = DateTime.Now;
+            category.DeletedDate = DateTime.Now;
             _unitOfWork.Repository<Category>().Update(category);
             return _unitOfWork.SaveChanges() > 0;
         }

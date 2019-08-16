@@ -59,6 +59,14 @@
     <Compile Include="Migrations\201905310706392_Initial.Designer.cs">
       <DependentUpon>201905310706392_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907181127359_update.cs" />
+    <Compile Include="Migrations\201907181127359_update.Designer.cs">
+      <DependentUpon>201907181127359_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050846283_AtrticleModelUpdate.cs" />
+    <Compile Include="Migrations\201908050846283_AtrticleModelUpdate.Designer.cs">
+      <DependentUpon>201908050846283_AtrticleModelUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -77,6 +85,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905310706392_Initial.resx">
       <DependentUpon>201905310706392_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181127359_update.resx">
+      <DependentUpon>201907181127359_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050846283_AtrticleModelUpdate.resx">
+      <DependentUpon>201908050846283_AtrticleModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,7 +10,7 @@ namespace NewBlogProject.AdminUI.Controllers
 {
     public class CategoryController : BaseController
     {
-        private readonly ICategoryService _categoryService;
+        internal readonly ICategoryService _categoryService;
         public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;

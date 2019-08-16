@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NewBlogProject.Entity.Attributes;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NewBlogProject.Globalization;
 
 namespace NewBlogProject.Entity.Entity
 {
     public class Article : ModelBase
     {
-        [Display(Name = "Başlık")]
+        [LocalizedDescriptionAttribute("Title", typeof(Globalization.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Globalization.Resource), ErrorMessageResourceName = "Required")]
         public string Title { get; set; }
+
+        [Required]
         [Display(Name = "Makale")]
         public string Text { get; set; }
         [Display(Name = "Açıklama")]

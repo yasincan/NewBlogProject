@@ -10,8 +10,8 @@ namespace NewBlogProject.AdminUI.Controllers
 {
     public class ArticleController : BaseController
     {
-        private readonly IArticleService _articleService;
-        private readonly ICategoryService _categoryService;
+        internal readonly IArticleService _articleService;
+        internal readonly ICategoryService _categoryService;
         public ArticleController(IArticleService articleService, ICategoryService categoryService)
         {
             _articleService = articleService;
@@ -48,6 +48,7 @@ namespace NewBlogProject.AdminUI.Controllers
             else
             {
                 ViewData["Categories"] = null;
+                ViewBag.Message = "Hiç kategori yok; Makale eklemek için kategori eklenmeli.";
             }
             return View();
         }
@@ -55,7 +56,7 @@ namespace NewBlogProject.AdminUI.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Text,Description,IsActive,CategoryId,DeletedData")] Article article, HttpPostedFileBase uploadPicture)
+        public ActionResult Create([Bind(Include = "Title,Text,Description,IsActive,CategoryId")] Article article, HttpPostedFileBase uploadPicture)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +78,7 @@ namespace NewBlogProject.AdminUI.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Text,Description,IsActive,CategoryId")] Article article, HttpPostedFileBase uploadPicture)
+        public ActionResult Edit(Article article, HttpPostedFileBase uploadPicture)
         {
             if (ModelState.IsValid)
             {

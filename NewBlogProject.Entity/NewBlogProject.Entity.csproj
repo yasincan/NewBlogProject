@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IModelBase.cs" />
+    <Compile Include="Attributes\LocalizedDescriptionAttribute.cs" />
     <Compile Include="Entity\Article.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\ModelBase.cs" />
@@ -51,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NewBlogProject.Globalization\NewBlogProject.Globalization.csproj">
+      <Project>{60898b40-9259-47ca-8e7e-2ebe001ae03a}</Project>
+      <Name>NewBlogProject.Globalization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

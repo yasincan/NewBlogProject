@@ -1,5 +1,5 @@
 ﻿@model Article
-
+@using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Sil";
 }
@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Text)
+            @Html.Raw(Regex.Replace(Model.Text, @"<[^>]*>", ""))
         </dd>
 
         <dt>
@@ -40,7 +40,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IsActive)
+            @if (Model.IsActive == true)
+            {
+                <i class="fa fa-check-circle" style="color:green;font-size:16px;"></i><span class="text-danger">@Html.DisplayName(" Aktif")</span>
+
+            }
+            else
+            {
+                <i class="fa fa-times-circle" style="color:red;font-size:16px;"></i><span class="text-danger">@Html.DisplayName(" Pasif")</span>
+            }
         </dd>
 
         <dt>
@@ -53,11 +61,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Sil" class="btn btn-light" /> |
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

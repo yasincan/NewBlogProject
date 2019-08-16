@@ -11,7 +11,7 @@ namespace NewBlogProject.Data.Repository
 {
     public class UnitOfWork : IDisposable, IUnitOfWork
     {
-        private readonly BlogContext _context;
+        internal readonly BlogContext _context;
 
         public UnitOfWork(BlogContext context)
         {

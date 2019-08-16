@@ -9,24 +9,34 @@ namespace NewBlogProject.Test
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Person person = new Developer();
-            
-            Console.WriteLine("Test");
+            // Person person = new Developer();
 
-            Utilities utilities = new Utilities();
-            List<Test> people = utilities.BuildList<Test>(new Test(), new Test());
+            // Console.WriteLine("Test");
 
-            foreach (var item in people)
-            {
-                Console.WriteLine(item.Price);
-            }
-            var computerName=Dns.GetHostName();
-            Console.WriteLine(Dns.GetHostByName(computerName).AddressList[2].ToString());
+            // Utilities utilities = new Utilities();
+            // List<Test> people = utilities.BuildList<Test>(new Test(), new Test());
 
-            Test test = new Test();
-            Console.WriteLine(test.IsValid);
+            // foreach (var item in people)
+            // {
+            //     Console.WriteLine(item.Price);
+            // }
+            // //var computerName=Dns.GetHostName();
+            //// Console.WriteLine(Dns.GetHostByName(computerName).AddressList[2].ToString());
+
+            // Test test = new Test();
+            // Console.WriteLine(test.IsValid);
+
+            // decimal? number= 121212.121215m;
+            //Console.WriteLine(Decimal.Round(number,2));
+            //Console.WriteLine(number.Value);
+            IEnumerable<string> vs = new string[] { "Yasin" ,"Deneme"};
+            Console.WriteLine(vs.FirstOrDefault(c=>c.Length>4));
+            //foreach (var item in vs)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
         }
         class Utilities

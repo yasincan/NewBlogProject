@@ -6,7 +6,7 @@ namespace NewBlogProject.Services.Concrete
 {
     public class CacheService : ICacheService
     {
-        private ObjectCache Cache { get { return MemoryCache.Default; } }
+        internal ObjectCache Cache { get { return MemoryCache.Default; } }
 
         public object Get(string key)
         {

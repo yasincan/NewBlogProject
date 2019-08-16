@@ -1,5 +1,5 @@
 ﻿@model Article
-
+@using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Detay";
 }
@@ -23,7 +23,7 @@
         </dt>
 
         <dd>
-            @Html.Raw(Model.Text)
+            @Html.Raw(Regex.Replace(Model.Text, @"<[^>]*>", ""))
         </dd>
 
         <dt>
@@ -35,18 +35,26 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.IsActive)
         </dt>
 
         <dd>
             @if (Model.IsActive == true)
             {
-                <b class="text-danger">@Html.DisplayName("Aktif")</b>
+                <i class="fa fa-check-circle" style="color:green;font-size:16px;"></i><span class="text-danger">@Html.DisplayName(" Aktif")</span>
 
             }
             else
             {
-                <b class="text-danger">@Html.DisplayName("Pasif")</b>
+                <i class="fa fa-times-circle" style="color:red;font-size:16px;"></i><span class="text-danger">@Html.DisplayName(" Pasif")</span>
             }
         </dd>
 

@@ -8,53 +8,66 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+
+    @RenderSection("styles", false)
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             @Html.ActionLink("Blog", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="~/Article">Makaleler</a>
-                    <a class="nav-item nav-link" href="~/Category">Kategoriler</a>
-                    @if (User.IsInRole("Administrator"))
-                    {
-                        <a class="nav-item nav-link" href="#">Kullanıcıları Yönet</a>
-                    }
+                    <a class="nav-item nav-link" href="~/Article">Article</a>
+                    <a class="nav-item nav-link" href="~/Category">Categories</a>
+                    <div class="float-">
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <a class="nav-item nav-link" href="#">Kullanıcıları Yönet</a>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="nav navbar-nav navbar-right">
+                                    <div class="navbar-nav">
+                                        <strong>
+                                            @Html.ActionLink($"Hello { User.Identity.GetUserName()} !", "", null, new { @class = "nav-item nav-link" })
+                                        </strong>
+                                        <strong><a class="nav-item nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></strong>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
                 </div>
             </div>
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                {
-                    @Html.AntiForgeryToken()
 
-                    <div class="nav navbar-nav navbar-right">
-                        <div class="navbar-nav">
-                            <strong >
-                                @Html.ActionLink($"Hello { User.Identity.GetUserName()} !","", "","", new { @class = "nav-item nav-link" })
-                            </strong>
-                            <strong><a class="nav-item nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></strong>
-                        </div>
-                    </div>
-                }
-            }
         </div>
     </nav>
     <div class="container">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Blog</p>
         </footer>
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.globalize.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
     @RenderSection("scripts", false)
+
+
 </body>
 </html>

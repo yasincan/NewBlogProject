@@ -3,15 +3,21 @@
 @{
     ViewBag.Title = "Makale ekle";
 }
-@if (ViewData["Categories"] != null)
+@using (Html.BeginForm("Create", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    using (Html.BeginForm("Create", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>Makale Ekle</h4>
-            <hr />
+    <div class="form-horizontal">
+        <h4>Makale Ekle</h4>
+        <hr />
+        @if (ViewData["Categories"] == null)
+        {
+            <div class="alert alert-info">
+                @ViewBag.Message
+            </div>
+        }
+        else
+        {
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -50,6 +56,8 @@
                 <div class="col-md-10">
                     @{
                         //var categories1 = ViewData["Categories"] as IEnumerable<Category>;
+
+
                         var categories = ViewData["Categories"] as IEnumerable<Category>;
                         var categoriesList = new List<SelectListItem>();
                         foreach (var item in categories)
@@ -59,6 +67,7 @@
                                 Text = item.CategoryName,
                                 Value = item.Id.ToString()
                             });
+
                         }
                     }
                     @*@Html.DropDownListFor(model => model.CategoryId, new SelectList(categories1, "Id", "CategoryName"), new { @class = "form-control" })*@
@@ -83,26 +92,13 @@
                     <input type="submit" value="Ekle" class="btn btn-light" />
                 </div>
             </div>
-        </div>
-    }
-}
-else
-{
-    <div class="alert-info">
-        Hiç kategori yok; Makale eklemek için kategori eklenmeli.
+
+        }
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section scripts{
-    <script src="~/ckeditor/ckeditor.js"></script>
-    <script src="~/Scripts/main.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-}
 
 
 
