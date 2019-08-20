@@ -4,6 +4,8 @@ using Microsoft.Owin.Security;
 using NewBlogProject.Identity.ApplicationManager;
 using NewBlogProject.Identity.Models;
 using NewBlogProject.Identity.Models.ViewModel;
+using NewBlogProject.Services.Abstract;
+using NewBlogProject.Services.Concrete;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -14,10 +16,11 @@ namespace NewBlogProject.AdminUI.Controllers
     {
         internal ApplicationSignInManager _signInManager;
         internal ApplicationUserManager _userManager;
+        internal ICaptchaService _captchaService;
 
-        public AccountController()
+        public AccountController(ICaptchaService captchaService)
         {
-
+            _captchaService = captchaService;
         }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -104,9 +107,16 @@ namespace NewBlogProject.AdminUI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public void Image()
+        {
+            _captchaService.DisplayCaptcha("login");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -118,7 +128,14 @@ namespace NewBlogProject.AdminUI.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    if (_captchaService.Verify("login",model.Captcha))
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login");
+                    }
                 case SignInStatus.LockedOut:
                     return View("Çıkış");
                 case SignInStatus.RequiresVerification:

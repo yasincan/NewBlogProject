@@ -21,5 +21,11 @@ namespace NewBlogProject.Identity.Models.ViewModel
 
         [Display(Name = "Beni hatırla")]
         public bool RememberMe { get; set; }
+
+        [Required]
+        [Display(Name ="Doğrulma kodunu girin")]
+        public string Captcha { get; set; }
+
+
     }
 }

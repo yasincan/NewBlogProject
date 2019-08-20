@@ -1,9 +1,8 @@
-﻿
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     document.title = 'Simple DataTable';
     $("#myTable").DataTable({
-        "language": {
+       
+        language: {
             "sDecimal": ",",
             "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
             "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
@@ -16,6 +15,7 @@ $(document).ready(function () {
             "sProcessing": "İşleniyor...",
             "sSearch": "Ara:",
             "sZeroRecords": "Eşleşen kayıt bulunamadı",
+            "lengthMenu": "İlk _MENU_ kaydı göster",
             "oPaginate": {
                 "sFirst": "İlk",
                 "sLast": "Son",
@@ -26,18 +26,23 @@ $(document).ready(function () {
                 "sSortAscending": ": artan sütun sıralamasını aktifleştir",
                 "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
             },
-            "select": {
-                "rows": {
+            buttons: {
+                pageLength: {
                     "_": "%d kayıt seçildi",
                     "0": "",
-                    "1": "1 kayıt seçildi"
-                }
+                    '-1': "Tüm kayıtlar seçildi"
+                },
             }
         },
         dom: 'Bfrtip',
+        lengthMenu: [
+            [10, 25, 50, -1],
+            ['10 ', '25 ', '50 ', 'Tümünü göster'],
+        ],
         buttons: [
-            'copy', 'excel', 'pdf'
-        ]
+            'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+
     });
 
     if ($("textarea").length > 0) {
@@ -46,6 +51,8 @@ $(document).ready(function () {
             filebrowserImageUploadUrl: '~/Images/Uploads'
         });
     }
+
+    $("[data-toggle=tooltip]").tooltip();
 
 });
 

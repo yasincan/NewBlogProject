@@ -5,6 +5,9 @@
 }
 @section styles{
 }
+@{ 
+    int i = 1;
+}
 <h2>Articles</h2>
 <hr />
 <p>
@@ -13,6 +16,9 @@
 <table id="myTable" class="table table-striped table-bordered" width:"100%">
     <thead>
         <tr>
+            <th>
+                Kayıt No
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -40,6 +46,13 @@
         @foreach (var item in Model)
         {
             <tr>
+               <td>
+                   @i
+
+                   @{ 
+                       i++;
+                   }
+               </td>
                 <td>
                     @if (item.Title != null && item.Title.Length > 200)
                     {

@@ -29,8 +29,8 @@ namespace NewBlogProject.WebAPI
 
             // This will register the required service class object in above snippets.
           
-            builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
-            builder.RegisterType<ArticleService>().As<IArticleService>();
+            //builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
+            //builder.RegisterType<ArticleService>().As<IArticleService>();
 
             builder.RegisterDataLayer();
             builder.RegisterBusinesLayer();

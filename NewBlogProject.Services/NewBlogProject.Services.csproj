@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -78,10 +79,12 @@
   <ItemGroup>
     <Compile Include="Abstract\IArticleService.cs" />
     <Compile Include="Abstract\ICacheService.cs" />
+    <Compile Include="Abstract\ICaptchaService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\IFileUploadManager.cs" />
     <Compile Include="Concrete\ArticleService.cs" />
     <Compile Include="Concrete\CacheService.cs" />
+    <Compile Include="Concrete\CaptchaService.cs" />
     <Compile Include="Concrete\CategoryService.cs" />
     <Compile Include="Concrete\FileUploadManager.cs" />
     <Compile Include="Extentions\ServiceExtentions.cs" />

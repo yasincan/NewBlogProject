@@ -13,6 +13,7 @@ namespace NewBlogProject.Services.Extentions
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             builder.RegisterType<FileUploadManager>().As<IFileUploadManager>();
             builder.RegisterType<CacheService>().As<ICacheService>();
+            builder.RegisterType<CaptchaService>().As<ICaptchaService>();
             return builder;
         }
     }

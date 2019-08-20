@@ -29,6 +29,17 @@
             </div>
         </div>
 
+        <form class="form-group">
+            @Html.LabelFor(model => model.Captcha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="~/account/image?type=0" />
+                <br /><br />
+                @Html.EditorFor(model => model.Captcha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Captcha, "", new { @class = "text-danger" })
+                <br />
+            </div>
+        </form>
+
         <div class="form-group">
             @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -50,3 +61,21 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    $(document).ready(function () {
+    //Ask ASP.NET what culture we prefer, because we stuck it in a meta tag
+    var data = $("meta[name='accept-language']").attr("content")
+    //Tell jQuery to figure it out also on the client side.
+    $.global.preferCulture(data);
+ 
+    //Tell the validator, for example,
+    // that we want numbers parsed a certain way!
+    $.validator.methods.number = function (value, element) {
+        if ($.global.parseFloat(value)) {
+            return true;
+        }
+        return false;
+    }
+});
+</script>

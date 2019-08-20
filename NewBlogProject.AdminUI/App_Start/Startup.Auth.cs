@@ -34,7 +34,7 @@ namespace NewBlogProject.AdminUI
 
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-
+            //app.UseRequestLocalization("tr-TR");
 
         }
     }
