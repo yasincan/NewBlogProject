@@ -29,6 +29,9 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.IsActive)
             </th>
             <th>
@@ -82,6 +85,9 @@
                     {
                         @Html.DisplayName(item.Description)
                     }
+                </td>
+                <td>
+                    @Html.DisplayName(item.Category.CategoryName)
                 </td>
                 <td>
                     @if (item.IsActive == true)

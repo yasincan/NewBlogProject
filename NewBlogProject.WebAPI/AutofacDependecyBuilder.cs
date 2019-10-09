@@ -25,6 +25,7 @@ namespace NewBlogProject.WebAPI
           
             builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
             builder.RegisterType<ArticleService>().As<IArticleService>();
+            builder.RegisterType<CaptchaService>().As<ICaptchaService>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

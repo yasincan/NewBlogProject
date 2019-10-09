@@ -82,13 +82,13 @@
 	 * 1. Canonicalize.
 	 * 1.1 Make sure the input locale is in canonical form: uses the right
 	 * separator, and has the right casing.
-	 * TODO Right casing? What df? It seems languages are lowercase, scripts are
+	 * TODO Right casing? What df? It seems language are lowercase, scripts are
 	 * Capitalized, territory is uppercase. I am leaving this as an exercise to
 	 * the user.
 	 *
 	 * 1.2 Replace any deprecated subtags with their canonical values using the
 	 * <alias> data in supplemental metadata. Use the first value in the
-	 * replacement list, if it exists. Language tag replacements may have multiple
+	 * replacement list, if it exists. language tag replacements may have multiple
 	 * parts, such as "sh" ➞ "sr_Latn" or mo" ➞ "ro_MD". In such a case, the
 	 * original script and/or region are retained if there is one. Thus
 	 * "sh_Arab_AQ" ➞ "sr_Arab_AQ", not "sr_Latn_AQ".
@@ -99,14 +99,14 @@
 	 * TODO grandfathered?
 	 *
 	 * 1.4 Remove the script code 'Zzzz' and the region code 'ZZ' if they occur.
-	 * 1.5 Get the components of the cleaned-up source tag (languages, scripts,
+	 * 1.5 Get the components of the cleaned-up source tag (language, scripts,
 	 * and regions), plus any variants and extensions.
 	 * 2. Lookup. Lookup each of the following in order, and stop on the first
 	 * match:
-	 * 2.1 languages_scripts_regions
-	 * 2.2 languages_regions
-	 * 2.3 languages_scripts
-	 * 2.4 languages
+	 * 2.1 language_scripts_regions
+	 * 2.2 language_regions
+	 * 2.3 language_scripts
+	 * 2.4 language
 	 * 2.5 und_scripts
 	 * 3. Return
 	 * 3.1 If there is no match, either return an error value, or the match for
@@ -177,13 +177,13 @@
 	 * AddLikelySubtags(trial) = max, then return trial + variants.
 	 * 4. If you do not get a match, return max + variants.
 	 * 
-	 * @maxLanguageId [Array] maxLanguageId tuple (see init.js).
+	 * @maxlanguageId [Array] maxlanguageId tuple (see init.js).
 	 */
-	var coreRemoveLikelySubtags = function( Cldr, cldr, maxLanguageId ) {
+	var coreRemoveLikelySubtags = function( Cldr, cldr, maxlanguageId ) {
 		var match, matchFound,
-			language = maxLanguageId[ 0 ],
-			script = maxLanguageId[ 1 ],
-			territory = maxLanguageId[ 2 ];
+			language = maxlanguageId[ 0 ],
+			script = maxlanguageId[ 1 ],
+			territory = maxlanguageId[ 2 ];
 
 		// [3]
 		matchFound = arraySome([
@@ -193,13 +193,13 @@
 		], function( test ) {
 			var result = coreLikelySubtags( Cldr, cldr, test[ 0 ] );
 			match = test[ 1 ];
-			return result && result[ 0 ] === maxLanguageId[ 0 ] &&
-				result[ 1 ] === maxLanguageId[ 1 ] &&
-				result[ 2 ] === maxLanguageId[ 2 ];
+			return result && result[ 0 ] === maxlanguageId[ 0 ] &&
+				result[ 1 ] === maxlanguageId[ 1 ] &&
+				result[ 2 ] === maxlanguageId[ 2 ];
 		});
 
 		// [4]
-		return matchFound ?  match : maxLanguageId;
+		return matchFound ?  match : maxlanguageId;
 	};
 
 
@@ -211,7 +211,7 @@
 	 * @locale [String]
 	 */
 	var coreSubtags = function( locale ) {
-		var aux, unicodeLanguageId,
+		var aux, unicodelanguageId,
 			subtags = [];
 
 		locale = locale.replace( /_/, "-" );
@@ -226,7 +226,7 @@
 
 		// TODO normalize transformed extensions. Currently, skipped.
 		// subtags[ x ] = locale.split( "-t-" )[ 1 ];
-		unicodeLanguageId = locale.split( "-t-" )[ 0 ];
+		unicodelanguageId = locale.split( "-t-" )[ 0 ];
 
 		// unicode_language_id = "root"
 		//   | unicode_language_subtag         
@@ -235,7 +235,7 @@
 		//     (sep unicode_variant_subtag)* ;
 		//
 		// Although unicode_language_subtag = alpha{2,8}, I'm using alpha{2,3}. Because, there's no language on CLDR lengthier than 3.
-		aux = unicodeLanguageId.match( /^(([a-z]{2,3})(-([A-Z][a-z]{3}))?(-([A-Z]{2}|[0-9]{3}))?)(-[a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3})*$|^(root)$/ );
+		aux = unicodelanguageId.match( /^(([a-z]{2,3})(-([A-Z][a-z]{3}))?(-([A-Z]{2}|[0-9]{3}))?)(-[a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3})*$|^(root)$/ );
 		if ( aux === null ) {
 			return [ "und", "Zzzz", "ZZ" ];
 		}
@@ -269,15 +269,15 @@
 
 
 	/**
-	 * bundleLookup( minLanguageId )
+	 * bundleLookup( minlanguageId )
 	 *
 	 * @Cldr [Cldr class]
 	 *
 	 * @cldr [Cldr instance]
 	 *
-	 * @minLanguageId [String] requested languageId after applied remove likely subtags.
+	 * @minlanguageId [String] requested languageId after applied remove likely subtags.
 	 */
-	var bundleLookup = function( Cldr, cldr, minLanguageId ) {
+	var bundleLookup = function( Cldr, cldr, minlanguageId ) {
 		var availableBundleMap = Cldr._availableBundleMap,
 			availableBundleMapQueue = Cldr._availableBundleMapQueue;
 
@@ -297,7 +297,7 @@
 			Cldr._availableBundleMapQueue = [];
 		}
 
-		return availableBundleMap[ minLanguageId ] || null;
+		return availableBundleMap[ minlanguageId ] || null;
 	};
 
 
@@ -573,7 +573,7 @@
 	 * .init() automatically run on instantiation/construction.
 	 */
 	Cldr.prototype.init = function( locale ) {
-		var attributes, language, maxLanguageId, minLanguageId, script, subtags, territory, unicodeLocaleExtensions, variant,
+		var attributes, language, maxlanguageId, minlanguageId, script, subtags, territory, unicodeLocaleExtensions, variant,
 			sep = Cldr.localeSep;
 
 		validatePresence( locale, "locale" );
@@ -589,26 +589,26 @@
 		// Get the variant subtags (calendar, collation, currency, etc).
 		// refs:
 		// - http://www.unicode.org/reports/tr35/#Field_Definitions
-		// - http://www.unicode.org/reports/tr35/#Language_and_Locale_IDs
+		// - http://www.unicode.org/reports/tr35/#language_and_Locale_IDs
 		// - http://www.unicode.org/reports/tr35/#Unicode_locale_identifier
 
 		// When a locale id does not specify a language, or territory (region), or script, they are obtained by Likely Subtags.
-		maxLanguageId = coreLikelySubtags( Cldr, this, subtags, { force: true } ) || subtags;
-		language = maxLanguageId[ 0 ];
-		script = maxLanguageId[ 1 ];
-		territory = maxLanguageId[ 2 ];
+		maxlanguageId = coreLikelySubtags( Cldr, this, subtags, { force: true } ) || subtags;
+		language = maxlanguageId[ 0 ];
+		script = maxlanguageId[ 1 ];
+		territory = maxlanguageId[ 2 ];
 
-		minLanguageId = coreRemoveLikelySubtags( Cldr, this, maxLanguageId ).join( sep );
+		minlanguageId = coreRemoveLikelySubtags( Cldr, this, maxlanguageId ).join( sep );
 
 		// Set attributes
 		this.attributes = attributes = {
-			bundle: bundleLookup( Cldr, this, minLanguageId ),
+			bundle: bundleLookup( Cldr, this, minlanguageId ),
 
-			// Unicode Language Id
-			minlanguageId: minLanguageId,
-			maxLanguageId: maxLanguageId.join( sep ),
+			// Unicode language Id
+			minlanguageId: minlanguageId,
+			maxlanguageId: maxlanguageId.join( sep ),
 
-			// Unicode Language Id Subtabs
+			// Unicode language Id Subtabs
 			language: language,
 			script: script,
 			territory: territory,

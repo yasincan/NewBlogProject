@@ -147,7 +147,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewBlogProject.Data\NewBlogProject.Data.csproj">

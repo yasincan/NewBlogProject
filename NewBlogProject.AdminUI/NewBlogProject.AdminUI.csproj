@@ -527,6 +527,8 @@
     <Content Include="Scripts\globalize\number.js" />
     <Content Include="Scripts\globalize\plural.js" />
     <Content Include="Scripts\globalize\relative-time.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\newblogprojec - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -626,6 +628,10 @@
     <ProjectReference Include="..\NewBlogProject.Entity\NewBlogProject.Entity.csproj">
       <Project>{b6f70140-165b-4e2a-b889-36fbcab76969}</Project>
       <Name>NewBlogProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewBlogProject.Globalization\NewBlogProject.Globalization.csproj">
+      <Project>{60898b40-9259-47ca-8e7e-2ebe001ae03a}</Project>
+      <Name>NewBlogProject.Globalization</Name>
     </ProjectReference>
     <ProjectReference Include="..\NewBlogProject.Identity\NewBlogProject.Identity.csproj">
       <Project>{5b151156-8570-45e3-9de2-937725a3a821}</Project>

@@ -19,5 +19,14 @@ namespace NewBlogProject.Entity.Attributes
             _resourceManager = new ResourceManager(resoruceType);
             _resourceKey = resourceKey;
         }
+
+        public override string Description
+        {
+            get
+            {
+                string description = _resourceManager.GetString(_resourceKey);
+                return string.IsNullOrWhiteSpace(description) ? string.Format("[[{0}]]", _resourceKey) : description;
+            }
+        }
     }
 }

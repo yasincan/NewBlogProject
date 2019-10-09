@@ -1335,7 +1335,7 @@ function getOppositeVariation(variation) {
  * - `-end`
  *
  * Variations are interpreted easily if you think of them as the left to right
- * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+ * written language. Horizontally (`top` and `bottom`), `start` is left and `end`
  * is right.<br />
  * Vertically (`left` and `right`), `start` is top and `end` is bottom.
  *

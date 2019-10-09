@@ -63,19 +63,19 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    //Ask ASP.NET what culture we prefer, because we stuck it in a meta tag
-    var data = $("meta[name='accept-language']").attr("content")
-    //Tell jQuery to figure it out also on the client side.
-    $.global.preferCulture(data);
+//    $(document).ready(function () {
+//    //Ask ASP.NET what culture we prefer, because we stuck it in a meta tag
+//    var data = $("meta[name='accept-language']").attr("content")
+//    //Tell jQuery to figure it out also on the client side.
+//    $.global.preferCulture(data);
  
-    //Tell the validator, for example,
-    // that we want numbers parsed a certain way!
-    $.validator.methods.number = function (value, element) {
-        if ($.global.parseFloat(value)) {
-            return true;
-        }
-        return false;
-    }
-});
+//    //Tell the validator, for example,
+//    // that we want numbers parsed a certain way!
+//    $.validator.methods.number = function (value, element) {
+//        if ($.global.parseFloat(value)) {
+//            return true;
+//        }
+//        return false;
+//    }
+//});
 </script>

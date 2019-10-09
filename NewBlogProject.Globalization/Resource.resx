@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivePasive" xml:space="preserve">
+    <value>Aktif/Pasif</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Makale</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>Resim</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>Bu alan gereklidir.</value>
   </data>

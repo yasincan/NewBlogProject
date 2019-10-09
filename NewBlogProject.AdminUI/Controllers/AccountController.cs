@@ -4,11 +4,13 @@ using Microsoft.Owin.Security;
 using NewBlogProject.Identity.ApplicationManager;
 using NewBlogProject.Identity.Models;
 using NewBlogProject.Identity.Models.ViewModel;
+using NewBlogProject.Models.ResponseModels;
 using NewBlogProject.Services.Abstract;
 using NewBlogProject.Services.Concrete;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace NewBlogProject.AdminUI.Controllers
 {
@@ -17,10 +19,12 @@ namespace NewBlogProject.AdminUI.Controllers
         internal ApplicationSignInManager _signInManager;
         internal ApplicationUserManager _userManager;
         internal ICaptchaService _captchaService;
+        internal ITwitterService _twitterService;
 
-        public AccountController(ICaptchaService captchaService)
+        public AccountController(ICaptchaService captchaService, ITwitterService twitterService)
         {
             _captchaService = captchaService;
+            _twitterService = twitterService;
         }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -116,7 +120,8 @@ namespace NewBlogProject.AdminUI.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        
+        [OutputCache(NoStore = true, Location = OutputCacheLocation.None)]
+
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -128,13 +133,14 @@ namespace NewBlogProject.AdminUI.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (_captchaService.Verify("login",model.Captcha))
+                    if (_captchaService.Verify("login", model.Captcha))
                     {
                         return RedirectToLocal(returnUrl);
                     }
                     else
                     {
-                        return RedirectToAction("Login");
+                        ModelState.AddModelError("Captcha", "Doğrulama kodunu hatalı girdiniz");
+                        return View();
                     }
                 case SignInStatus.LockedOut:
                     return View("Çıkış");
@@ -184,6 +190,24 @@ namespace NewBlogProject.AdminUI.Controllers
             return View(model);
         }
 
-       
+        string consumerKey = "consumerKey ";
+        string consumerSecret = "consumerSecret ";
+        string redirectUrl = "https://localhost:10000/Home/ValidateTwitterAuth";
+
+        public async Task<ActionResult> TwitterAuthentication()
+        {
+            var url = await _twitterService.TwitterAuthentication(consumerKey, consumerSecret, redirectUrl);
+            return Redirect(url);
+        }
+
+        public async Task<ActionResult> ValidateTwitterAuth()
+        {
+            var oauthToken = Request.Params.Get("oauth_token");
+            var oauthVerifier = Request.Params.Get("oauth_verifier");
+
+            TwitterUser twitterUser = await _twitterService.TwitterAccessToken(consumerKey, oauthToken, oauthVerifier);
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

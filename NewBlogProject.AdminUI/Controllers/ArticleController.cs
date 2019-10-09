@@ -40,7 +40,6 @@ namespace NewBlogProject.AdminUI.Controllers
         public ActionResult Create()
         {
             var categories = _categoryService.Select();
-
             if (categories.Count() > 0)
             {
                 ViewData["Categories"] = _categoryService.Select();
@@ -62,6 +61,16 @@ namespace NewBlogProject.AdminUI.Controllers
             {
                 _articleService.Insert(article, uploadPicture);
                 return RedirectToAction("Index");
+            }
+            var categories = _categoryService.Select();
+            if (categories.Count() > 0)
+            {
+                ViewData["Categories"] = _categoryService.Select();
+            }
+            else
+            {
+                ViewData["Categories"] = null;
+                ViewBag.Message = "Hiç kategori yok; Makale eklemek için kategori eklenmeli.";
             }
             return View(article);
         }

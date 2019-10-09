@@ -14,6 +14,8 @@ namespace NewBlogProject.Services.Extentions
             builder.RegisterType<FileUploadManager>().As<IFileUploadManager>();
             builder.RegisterType<CacheService>().As<ICacheService>();
             builder.RegisterType<CaptchaService>().As<ICaptchaService>();
+            builder.RegisterType<TwitterService>().As<ITwitterService>();
+            builder.RegisterType<MailService>().As<IMailService>();
             return builder;
         }
     }

@@ -46,9 +46,16 @@
     <Reference Include="MvcContrib, Version=2.0.95.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -78,15 +85,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IArticleService.cs" />
+    <Compile Include="Abstract\IServiceBase.cs" />
     <Compile Include="Abstract\ICacheService.cs" />
     <Compile Include="Abstract\ICaptchaService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\IFileUploadManager.cs" />
+    <Compile Include="Abstract\IMailService.cs" />
+    <Compile Include="Abstract\ITwitterService.cs" />
     <Compile Include="Concrete\ArticleService.cs" />
+    <Compile Include="Concrete\ServiceBase.cs" />
     <Compile Include="Concrete\CacheService.cs" />
     <Compile Include="Concrete\CaptchaService.cs" />
     <Compile Include="Concrete\CategoryService.cs" />
+    <Compile Include="Concrete\DatatableService.cs" />
     <Compile Include="Concrete\FileUploadManager.cs" />
+    <Compile Include="Concrete\MailService.cs" />
+    <Compile Include="Concrete\TwitterService.cs" />
     <Compile Include="Extentions\ServiceExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

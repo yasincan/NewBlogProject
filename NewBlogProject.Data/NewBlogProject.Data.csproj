@@ -67,6 +67,18 @@
     <Compile Include="Migrations\201908050846283_AtrticleModelUpdate.Designer.cs">
       <DependentUpon>201908050846283_AtrticleModelUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908231215349_ResourceTest.cs" />
+    <Compile Include="Migrations\201908231215349_ResourceTest.Designer.cs">
+      <DependentUpon>201908231215349_ResourceTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908231305440_ResourceTest1.cs" />
+    <Compile Include="Migrations\201908231305440_ResourceTest1.Designer.cs">
+      <DependentUpon>201908231305440_ResourceTest1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910090856452_article updated.cs" />
+    <Compile Include="Migrations\201910090856452_article updated.Designer.cs">
+      <DependentUpon>201910090856452_article updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -91,6 +103,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908050846283_AtrticleModelUpdate.resx">
       <DependentUpon>201908050846283_AtrticleModelUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231215349_ResourceTest.resx">
+      <DependentUpon>201908231215349_ResourceTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231305440_ResourceTest1.resx">
+      <DependentUpon>201908231305440_ResourceTest1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910090856452_article updated.resx">
+      <DependentUpon>201910090856452_article updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

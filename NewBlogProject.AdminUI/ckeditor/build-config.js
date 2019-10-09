@@ -91,7 +91,7 @@ var CKBUILDER_CONFIG = {
 		'wsc' : 1,
 		'wysiwygarea' : 1
 	},
-	languages : {
+	language : {
 		'af' : 1,
 		'ar' : 1,
 		'az' : 1,

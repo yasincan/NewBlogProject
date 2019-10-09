@@ -1,14 +1,10 @@
 ﻿using NewBlogProject.Data.Abstract;
-using NewBlogProject.Entity;
 using NewBlogProject.Entity.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using NewBlogProject.Entity.Abstract;
 
 namespace NewBlogProject.Data.Repository
 {
@@ -23,7 +19,7 @@ namespace NewBlogProject.Data.Repository
             _dbSet = context.Set<T>();
         }
 
-        public virtual T FindById(Guid  EntityId)
+        public virtual T FindById(Guid EntityId)
         {
             return _dbSet.Find(EntityId);
         }
@@ -60,7 +56,7 @@ namespace NewBlogProject.Data.Repository
             _dbSet.Attach(entity);
             _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
 
-            
+
         }
     }
 }

@@ -25,6 +25,7 @@ namespace NewBlogProject.AdminUI
             builder.RegisterBusinesLayer();
             builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
             builder.RegisterType<ArticleService>().As<IArticleService>();
+           // builder.RegisterType<MailService>().As<IMailService>();
 
 
             IContainer container = builder.Build();

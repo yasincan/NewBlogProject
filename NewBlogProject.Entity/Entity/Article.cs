@@ -1,29 +1,37 @@
 ﻿using NewBlogProject.Entity.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
-using NewBlogProject.Globalization;
 
 namespace NewBlogProject.Entity.Entity
 {
     public class Article : ModelBase
     {
-        [LocalizedDescriptionAttribute("Title", typeof(Globalization.Resource))]
-        [Required(ErrorMessageResourceType = typeof(Globalization.Resource), ErrorMessageResourceName = "Required")]
+        //[LocalizedDescription("Title", typeof(Globalization.Resource))]
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "Title")]
+        //
         public string Title { get; set; }
 
-        [Required]
-        [Display(Name = "Makale")]
+
+        [Required(ErrorMessageResourceType = typeof(Globalization.Resource), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "Article")]
         public string Text { get; set; }
-        [Display(Name = "Açıklama")]
+
+
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "Description")]
         public string Description { get; set; }
-        [Display(Name = "Aktif/Pasif")]
+
+
+        [Display(ResourceType=typeof(Globalization.Resource) ,Name = "ActivePasive")]
         public bool IsActive { get; set; }
-        [Display(Name = "Kategori")]
+
         public Guid CategoryId { get; set; }
-        [Display(Name = "Resim")]
+
         public Guid? PictureId { get; set; }
-        [Display(Name = "Kategori")]
+
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "Category")]
         public virtual Category Category { get; set; }
+
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "Picture")]
         public virtual Picture Picture { get; set; }
     }
 }

@@ -16,12 +16,12 @@ Demo
 ------------
 SCAYT plugin for CKEditor 4: https://webspellchecker.com/wsc-scayt-ckeditor4/
 
-Supported Languages
+Supported language
 ------------
 
-The SCAYT plugin for CKEditor as a part of the free services supports the next languages for check spelling: American English, British English, Canadian English, Canadian French, Danish, Dutch, Finnish, French, German, Greek, Italian, Norwegian Bokmal, Spanish, Swedish.
+The SCAYT plugin for CKEditor as a part of the free services supports the next language for check spelling: American English, British English, Canadian English, Canadian French, Danish, Dutch, Finnish, French, German, Greek, Italian, Norwegian Bokmal, Spanish, Swedish.
 
-There are also additional languages and specialized dictionaries available for a commercial license, you can check the full list [here](https://webspellchecker.com/additional-dictionaries/).
+There are also additional language and specialized dictionaries available for a commercial license, you can check the full list [here](https://webspellchecker.com/additional-dictionaries/).
 
 Get Started
 ------------

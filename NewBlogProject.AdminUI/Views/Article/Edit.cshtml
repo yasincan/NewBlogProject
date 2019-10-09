@@ -51,7 +51,7 @@
                 @{
                     var categories = ViewData["Categories"] as IEnumerable<Category>;
                 }
-                @Html.DropDownListFor(model => model.CategoryId, new SelectList(categories, "Id", "CategoryName"), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CategoryId, new SelectList(categories, "Id", "CategoryName",Model.CategoryId), new { @class = "form-control" })
 
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
             </div>

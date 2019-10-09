@@ -46,8 +46,10 @@
     <Compile Include="Attributes\LocalizedDescriptionAttribute.cs" />
     <Compile Include="Entity\Article.cs" />
     <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\Log.cs" />
     <Compile Include="Entity\ModelBase.cs" />
     <Compile Include="Entity\Picture.cs" />
+    <Compile Include="Entity\TwitterUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,6 @@
 ﻿using NewBlogProject.Data.Abstract;
-using NewBlogProject.Entity;
 using NewBlogProject.Entity.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewBlogProject.Data.Repository
 {

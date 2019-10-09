@@ -16,9 +16,9 @@ Fixed Issues:
 Other Changes:
 
 * Updated [WebSpellChecker](https://ckeditor.com/cke4/addon/wsc) (WSC) and [SpellCheckAsYouType](https://ckeditor.com/cke4/addon/scayt) (SCAYT) plugins:
-	* Language dictionary update: German language was extended with over 600k new words.
-	* Language dictionary update: Swedish language was extended with over 300k new words.
-	* Grammar support added for Australian and New Zealand English, Polish, Slovak, Slovenian and Austrian languages.
+	* language dictionary update: German language was extended with over 600k new words.
+	* language dictionary update: Swedish language was extended with over 300k new words.
+	* Grammar support added for Australian and New Zealand English, Polish, Slovak, Slovenian and Austrian language.
 	* Changed wavy red and green lines that underline spelling and grammar errors to straight ones.
 	* [#55](https://github.com/WebSpellChecker/ckeditor-plugin-wsc/issues/55): Fixed: WSC does not use [`CKEDITOR.getUrl()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.html#method-getUrl) when referencing style sheets.
 	* [#166](https://github.com/WebSpellChecker/ckeditor-plugin-scayt/issues/166): Fixed: SCAYT does not use [`CKEDITOR.getUrl()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.html#method-getUrl) when referencing style sheets.
@@ -27,7 +27,7 @@ Other Changes:
 	* Fixed: The Slovenian (`sl_SL`) language does not work.
 	* Fixed: Quotes with code `U+2019` (Right single quotation mark) are considered separators.
 	* Fixed: Wrong error message formatting when the service ID is invalid.
-	* Fixed: Absent languages in the Languages tab when using SCAYT with the [Shared Spaces](https://ckeditor.com/cke4/addon/sharedspace) plugin.
+	* Fixed: Absent language in the language tab when using SCAYT with the [Shared Spaces](https://ckeditor.com/cke4/addon/sharedspace) plugin.
 
 ## CKEditor 4.11.3
 
@@ -202,8 +202,8 @@ API Changes:
 Other Changes:
 
 * Updated [SCAYT](https://ckeditor.com/cke4/addon/scayt) (Spell Check As You Type) and [WebSpellChecker](https://ckeditor.com/cke4/addon/wsc) (WSC) plugins:
-	* Language dictionary update: Added support for the Uzbek Latin language.
-	* Languages no longer supported as additional languages: Manx - Isle of Man (`gv_GB`) and Interlingua (`ia_XR`).
+	* language dictionary update: Added support for the Uzbek Latin language.
+	* language no longer supported as additional language: Manx - Isle of Man (`gv_GB`) and Interlingua (`ia_XR`).
 	* Extended and improved language dictionaries: Georgian and Swedish. Also added the missing word _"Ensure"_ to the American, British and Canada English language.
 	* [#141](https://github.com/WebSpellChecker/ckeditor-plugin-scayt/issues/141) Fixed: SCAYT throws "Uncaught Error: Error in RangyWrappedRange module: createRange(): Parameter must be a Window object or DOM node".
 	* [#153](https://github.com/WebSpellChecker/ckeditor-plugin-scayt/issues/153) [Chrome] Fixed: Correcting a word in the widget in SCAYT moves focus to another editable.
@@ -212,9 +212,9 @@ Other Changes:
 	* Fixed: After some text is dragged and dropped, the markup is not refreshed for grammar problems in SCAYT.
 	* Fixed: Request to FastCGI fails when the user tries to replace a word with non-English characters with a proper suggestion in WSC.
 	* [Firefox] Fixed: <kbd>Ctrl</kbd>+<kbd>Z</kbd> removes focus in SCAYT.
-	* Grammar support for default languages was improved.
+	* Grammar support for default language was improved.
 	* New application source URL was added in SCAYT.
-	* Removed green marks and legend related to grammar-supported languages in the Languages tab of SCAYT. Grammar is now supported for almost all the anguages in the list for an additional fee.
+	* Removed green marks and legend related to grammar-supported language in the language tab of SCAYT. Grammar is now supported for almost all the anguages in the list for an additional fee.
 	* Fixed: JavaScript error in the console: "Cannot read property 'split' of undefined" in SCAYT and WSC.
 	* [IE10] Fixed: Markup is not set for a specific case in SCAYT.
 	* Fixed: Accessibility issue: No `alt` attribute for the logo image in the About tab of SCAYT.
@@ -356,7 +356,7 @@ Fixed Issues:
 
 * [#554](https://github.com/ckeditor/ckeditor-dev/issues/554): Fixed: [`change`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-change) event not fired when typing the first character after pasting into the editor. Thanks to [Daniel Miller](https://github.com/millerdev)!
 * [#566](https://github.com/ckeditor/ckeditor-dev/issues/566): Fixed: The CSS `border` shorthand property with zero width (`border: 0px solid #000;`) causes the table to have the border attribute set to 1.
-* [#779](https://github.com/ckeditor/ckeditor-dev/issues/779): Fixed: The [Remove Format](https://ckeditor.com/cke4/addon/removeformat) plugin removes elements with language definition inserted by the [Language](https://ckeditor.com/cke4/addon/language) plugin.
+* [#779](https://github.com/ckeditor/ckeditor-dev/issues/779): Fixed: The [Remove Format](https://ckeditor.com/cke4/addon/removeformat) plugin removes elements with language definition inserted by the [language](https://ckeditor.com/cke4/addon/language) plugin.
 * [#423](https://github.com/ckeditor/ckeditor-dev/issues/423): Fixed: The [Paste from Word](https://ckeditor.com/cke4/addon/pastefromword) plugin pastes paragraphs into the editor even if [`CKEDITOR.config.enterMode`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-enterMode) is set to `CKEDITOR.ENTER_BR`.
 * [#719](https://github.com/ckeditor/ckeditor-dev/issues/719): Fixed: Image inserted using the [Enhanced Image](https://ckeditor.com/cke4/addon/image2) plugin can be resized when the editor is in [read-only mode](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_readonly.html).
 * [#577](https://github.com/ckeditor/ckeditor-dev/issues/577): Fixed: The "Delete Columns" command provided by the [Table Tools](https://ckeditor.com/cke4/addon/tabletools) plugin throws an error when trying to delete columns.
@@ -479,7 +479,7 @@ Fixed Issues:
 Other Changes:
 
 * Updated [SCAYT](https://ckeditor.com/cke4/addon/scayt) (Spell Check As You Type) and [WebSpellChecker](https://ckeditor.com/cke4/addon/wsc) plugins:
-	* Fixed: DOM Exception after clicking "Remove Language" on a selected word with enabled [Language](https://ckeditor.com/cke4/addon/language) plugin in SCAYT.
+	* Fixed: DOM Exception after clicking "Remove language" on a selected word with enabled [language](https://ckeditor.com/cke4/addon/language) plugin in SCAYT.
 * [#16958](https://dev.ckeditor.com/ticket/16958): Switched the default MathJax CDN provider for the [Mathematical Formulas](https://ckeditor.com/cke4/addon/mathjax) plugin from `cdn.mathjax.org` to [cdnjs](https://cdnjs.com/), due to closing of `cdn.mathjax.org` scheduled for April 30, 2017.
 * [#16954](https://dev.ckeditor.com/ticket/16954): Removed the paste dialog.
 * [#16982](https://dev.ckeditor.com/ticket/16982): Latest Safari now supports enhanced Clipboard API introduced in CKEditor 4.5.0.
@@ -678,7 +678,7 @@ Other Changes:
 
 * Updated [SCAYT](https://ckeditor.com/cke4/addon/scayt) (Spell Check As You Type):
 	- New features:
-		- CKEditor [Language](https://ckeditor.com/cke4/addon/language) plugin support.
+		- CKEditor [language](https://ckeditor.com/cke4/addon/language) plugin support.
 		- CKEditor [Placeholder](https://ckeditor.com/cke4/addon/placeholder) plugin support.
 		- [Drag&Drop](https://ckeditor.com/docs/ckeditor4/latest/examples/fileupload.html) support.
 		- **Experimental** [GRAYT](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-grayt_autoStartup) (Grammar As You Type) functionality.
@@ -1330,7 +1330,7 @@ Fixed Issues:
 
 **Important Notes:**
 
-* To match the naming convention, the `language` button is now `Language` ([#11201](https://dev.ckeditor.com/ticket/11201)).
+* To match the naming convention, the `language` button is now `language` ([#11201](https://dev.ckeditor.com/ticket/11201)).
 * [Enhanced Image](https://ckeditor.com/cke4/addon/image2) button, context menu, command, and icon names match those of the [Image](https://ckeditor.com/cke4/addon/image) plugin ([#11222](https://dev.ckeditor.com/ticket/11222)).
 
 Fixed Issues:
@@ -1338,7 +1338,7 @@ Fixed Issues:
 * [#11244](https://dev.ckeditor.com/ticket/11244): Changed: The [`widget.repository.checkWidgets()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_repository.html#method-checkWidgets) method now fires the [`widget.repository.checkWidgets`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_repository.html#event-checkWidgets) event, so from CKEditor 4.3.1 it is preferred to use the method rather than fire the event.
 * [#11171](https://dev.ckeditor.com/ticket/11171): Fixed: [`editor.insertElement()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-insertElement) and [`editor.insertText()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-insertText) methods do not call the [`widget.repository.checkWidgets()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_repository.html#method-checkWidgets) method.
 * [#11085](https://dev.ckeditor.com/ticket/11085): [IE8] Replaced preview generated by the [Mathematical Formulas](https://ckeditor.com/cke4/addon/mathjax) widget with a placeholder.
-* [#11044](https://dev.ckeditor.com/ticket/11044): Enhanced WAI-ARIA support for the [Language](https://ckeditor.com/cke4/addon/language) plugin drop-down menu.
+* [#11044](https://dev.ckeditor.com/ticket/11044): Enhanced WAI-ARIA support for the [language](https://ckeditor.com/cke4/addon/language) plugin drop-down menu.
 * [#11075](https://dev.ckeditor.com/ticket/11075): With drop-down menu button focused, pressing the *Down Arrow* key will now open the menu and focus its first option.
 * [#11165](https://dev.ckeditor.com/ticket/11165): Fixed: The [File Browser](https://ckeditor.com/cke4/addon/filebrowser) plugin cannot be removed from the editor.
 * [#11159](https://dev.ckeditor.com/ticket/11159): [IE9-10] [Enhanced Image](https://ckeditor.com/cke4/addon/image2): Fixed buggy discovery of image dimensions.
@@ -1382,9 +1382,9 @@ New Features:
   * fixing other minor bugs.
 * [#10862](https://dev.ckeditor.com/ticket/10862): [Placeholder](https://ckeditor.com/cke4/addon/placeholder) plugin was rewritten as a widget.
 * [#10822](https://dev.ckeditor.com/ticket/10822): Added styles system integration with non-editable elements (for example widgets) and their nested editables. Styles cannot change non-editable content and are applied in nested editable only if allowed by its type and content filter.
-* [#10856](https://dev.ckeditor.com/ticket/10856): Menu buttons will now toggle the visibility of their panels when clicked multiple times. [Language](https://ckeditor.com/cke4/addon/language) plugin fixes: Added active language highlighting, added an option to remove the language.
+* [#10856](https://dev.ckeditor.com/ticket/10856): Menu buttons will now toggle the visibility of their panels when clicked multiple times. [language](https://ckeditor.com/cke4/addon/language) plugin fixes: Added active language highlighting, added an option to remove the language.
 * [#10028](https://dev.ckeditor.com/ticket/10028): New [`config.dialog_noConfirmCancel`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_noConfirmCancel) configuration option that eliminates the need to confirm closing of a dialog window when the user changed any of its fields.
-* [#10848](https://dev.ckeditor.com/ticket/10848): Integrate remaining plugins ([Styles](https://ckeditor.com/cke4/addon/stylescombo), [Format](https://ckeditor.com/cke4/addon/format), [Font](https://ckeditor.com/cke4/addon/font), [Color Button](https://ckeditor.com/cke4/addon/colorbutton), [Language](https://ckeditor.com/cke4/addon/language) and [Indent](https://ckeditor.com/cke4/addon/indent)) with [active filter](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#property-activeFilter).
+* [#10848](https://dev.ckeditor.com/ticket/10848): Integrate remaining plugins ([Styles](https://ckeditor.com/cke4/addon/stylescombo), [Format](https://ckeditor.com/cke4/addon/format), [Font](https://ckeditor.com/cke4/addon/font), [Color Button](https://ckeditor.com/cke4/addon/colorbutton), [language](https://ckeditor.com/cke4/addon/language) and [Indent](https://ckeditor.com/cke4/addon/indent)) with [active filter](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#property-activeFilter).
 * [#10855](https://dev.ckeditor.com/ticket/10855): Change the extension of emoticons in the [BBCode](https://ckeditor.com/cke4/addon/bbcode) sample from GIF to PNG.
 
 Fixed Issues:
@@ -1439,7 +1439,7 @@ New Features:
       * New methods for [`htmlParser.node`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.htmlParser.node.html) and [`htmlParser.element`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.htmlParser.element.html).
 * [#10659](https://dev.ckeditor.com/ticket/10659): New [Enhanced Image](https://ckeditor.com/cke4/addon/image2) plugin that introduces a widget with integrated image captions, an option to center images, and dynamic "click and drag" resizing.
 * [#10664](https://dev.ckeditor.com/ticket/10664): New [Mathematical Formulas](https://ckeditor.com/cke4/addon/mathjax) plugin that introduces the MathJax widget.
-* [#7987](https://dev.ckeditor.com/ticket/7987): New [Language](https://ckeditor.com/cke4/addon/language) plugin that implements Language toolbar button to support [WCAG 3.1.2 Language of Parts](http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html).
+* [#7987](https://dev.ckeditor.com/ticket/7987): New [language](https://ckeditor.com/cke4/addon/language) plugin that implements language toolbar button to support [WCAG 3.1.2 language of Parts](http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html).
 * [#10708](https://dev.ckeditor.com/ticket/10708): New [smileys](https://ckeditor.com/cke4/addon/smiley).
 
 ## CKEditor 4.2.3

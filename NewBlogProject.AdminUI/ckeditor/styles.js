@@ -76,8 +76,8 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Cited Work',		element: 'cite' },
 	{ name: 'Inline Quotation',	element: 'q' },
 
-	{ name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
-	{ name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
+	{ name: 'language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
+	{ name: 'language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
 
 	/* Object styles */
 

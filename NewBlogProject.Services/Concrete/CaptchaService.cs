@@ -1,12 +1,9 @@
 ﻿using NewBlogProject.Services.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace NewBlogProject.Services.Concrete
@@ -43,7 +40,7 @@ namespace NewBlogProject.Services.Concrete
             context.Response.AppendHeader("Expires", "0"); // Proxies.
             context.Response.ContentType = "image/png";
 
-            CreateCaptcha(cstr, 150, 50, "Geneva", Color.White, Color.Gray);
+            CreateCaptcha(cstr, 150, 50, "Geneva", Color.White, Color.Black);
             image.Save(context.Response.OutputStream, ImageFormat.Png);
             context.Response.End();
         }
