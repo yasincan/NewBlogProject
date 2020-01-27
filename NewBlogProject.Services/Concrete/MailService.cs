@@ -5,17 +5,15 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Configuration;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewBlogProject.Services.Concrete
 {
-    public class MailService : IMailService, IDisposable
+    public class MailService : IMailService
     {
-        string mailToListForAppSettings = ConfigurationManager.AppSettings["newblogproject:form:mail:to"];
-        string mailCCListForAppSettings = ConfigurationManager.AppSettings["newblogproject:form:mail:cc"];
+        readonly string mailToListForAppSettings = ConfigurationManager.AppSettings["newblogproject:form:mail:to"];
+        readonly string mailCCListForAppSettings = ConfigurationManager.AppSettings["newblogproject:form:mail:cc"];
 
-    public bool SendMail(string subject, string body)
+        public bool SendMail(string subject, string body)
         {
             string fromMail = string.Empty,
             host = string.Empty,
@@ -70,11 +68,6 @@ namespace NewBlogProject.Services.Concrete
             }
 
             return result;
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }

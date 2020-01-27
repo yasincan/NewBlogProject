@@ -1,9 +1,7 @@
-﻿using MvcContrib.Pagination;
-using NewBlogProject.Data.Abstract;
+﻿using NewBlogProject.Data.Abstract;
 using NewBlogProject.Entity.Entity;
 using NewBlogProject.Services.Abstract;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -84,7 +82,7 @@ namespace NewBlogProject.Services.Concrete
 
             if (uploadPicture != null)
             {
-                if (newArticle.PictureId!=null)
+                if (newArticle.PictureId != null)
                 {
                     var id = Guid.Parse(Convert.ToString(newArticle.PictureId));
                     Picture picture = _unitOfWork.Repository<Picture>().FindById(id);
@@ -97,20 +95,20 @@ namespace NewBlogProject.Services.Concrete
                     _unitOfWork.Repository<Picture>().Delete(picture);
                     _unitOfWork.SaveChanges();
                 }
-              
-                    var fileName = Path.GetFileName(uploadPicture.FileName);
-                    var newFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(uploadPicture.FileName);
-                    _fileUploadManager.UploadFile(uploadPicture, newFileName, "~/Images/ArticlePicture");
-                    Picture newPicture = new Picture()
-                    {
-                        Id = Guid.NewGuid(),
-                        Path = newFileName,
-                        Title = fileName,
-                        CreatedDate = DateTime.Now
-                    };
-                    _unitOfWork.Repository<Picture>().Insert(newPicture);
-                    _unitOfWork.SaveChanges();
-                    newArticle.PictureId = newPicture.Id;
+
+                var fileName = Path.GetFileName(uploadPicture.FileName);
+                var newFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(uploadPicture.FileName);
+                _fileUploadManager.UploadFile(uploadPicture, newFileName, "~/Images/ArticlePicture");
+                Picture newPicture = new Picture()
+                {
+                    Id = Guid.NewGuid(),
+                    Path = newFileName,
+                    Title = fileName,
+                    CreatedDate = DateTime.Now
+                };
+                _unitOfWork.Repository<Picture>().Insert(newPicture);
+                _unitOfWork.SaveChanges();
+                newArticle.PictureId = newPicture.Id;
             }
 
             newArticle.UpdatedDate = DateTime.Now;

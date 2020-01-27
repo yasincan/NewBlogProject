@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    document.title = 'Simple DataTable';
     $("#myTable").DataTable({
        
         language: {

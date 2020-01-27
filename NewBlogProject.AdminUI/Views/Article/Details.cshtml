@@ -1,7 +1,7 @@
 ﻿@model Article
 @using System.Text.RegularExpressions;
 @{
-    ViewBag.Title = "Detay";
+    ViewBag.Title = NewBlogProject.Globalization.Resource.Details;
 }
 
 <h2>Details</h2>
@@ -89,6 +89,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@NewBlogProject.Globalization.Resource.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(@NewBlogProject.Globalization.Resource.BacktoList, "Index")
 </p>

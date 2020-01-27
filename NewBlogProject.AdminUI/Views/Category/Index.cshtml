@@ -27,21 +27,21 @@
         {
             <tr>
                 <td>
-                    @if (item.CategoryName != null && item.CategoryName.Length > 100)
+                    @if (item.CategoryName.Length > 100)
                     {
                         @Html.DisplayFor(modelItem => item.CategoryName.Substring(0, 100))
                     }
-                    else
+                    else if(item.CategoryName != null )
                     {
                         @Html.DisplayFor(modelItem => item.CategoryName)
                     }
                 </td>
                 <td>
-                    @if (item.Description != null && item.Description.Length > 100)
+                    @if (item.Description.Length > 100)
                     {
                         @Html.DisplayFor(modelItem => item.Description.Substring(0, 100))
                     }
-                    else
+                    else if(item.Description != null )
                     {
                         @Html.DisplayFor(modelItem => item.Description)
                     }

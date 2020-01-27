@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IModelBase.cs" />
-    <Compile Include="Attributes\LocalizedDescriptionAttribute.cs" />
     <Compile Include="Entity\Article.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Log.cs" />

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace NewBlogProject.Identity.Models.ViewModel
 {
@@ -23,7 +18,7 @@ namespace NewBlogProject.Identity.Models.ViewModel
         public bool RememberMe { get; set; }
 
         [Required]
-        [Display(Name ="Doğrulma kodunu girin")]
+        [Display(Name = "Doğrulma kodunu girin")]
         public string Captcha { get; set; }
 
 

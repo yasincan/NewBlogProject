@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NewBlogProject.Data.Enums;
+using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace NewBlogProject.WebAPI.Models.ResponseModel
 {
@@ -12,7 +10,7 @@ namespace NewBlogProject.WebAPI.Models.ResponseModel
         public bool IsSuccess => Data != null;
         public ResponseCode ResponseCode { get; set; }
         public object Data { get; set; }
-        public string Message => GetResponseTypeDescription(ResponseCode) ;
+        public string Message => GetResponseTypeDescription(ResponseCode);
         public string ExceptionMessage { get; set; }
 
         private string GetResponseTypeDescription(Enum value)

@@ -1,8 +1,8 @@
 ﻿using Autofac;
 
-namespace NewBlogProject.Data.Extentions
+namespace NewBlogProject.Data.Extensions
 {
-    public static class ServiceExtentions
+    public static class DataLayerExtension
     {
         public static ContainerBuilder RegisterDataLayer(this ContainerBuilder builder)
         {

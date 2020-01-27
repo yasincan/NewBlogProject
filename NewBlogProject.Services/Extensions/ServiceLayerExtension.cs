@@ -4,11 +4,11 @@ using NewBlogProject.Data.Repository;
 using NewBlogProject.Services.Abstract;
 using NewBlogProject.Services.Concrete;
 
-namespace NewBlogProject.Services.Extentions
+namespace NewBlogProject.Services.Extensions
 {
-    public static class ServiceExtentions
+    public static class ServiceLayerExtension
     {
-        public static ContainerBuilder RegisterBusinesLayer(this ContainerBuilder builder)
+        public static ContainerBuilder RegisterServiceLayer(this ContainerBuilder builder)
         {
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             builder.RegisterType<FileUploadManager>().As<IFileUploadManager>();
@@ -16,6 +16,10 @@ namespace NewBlogProject.Services.Extentions
             builder.RegisterType<CaptchaService>().As<ICaptchaService>();
             builder.RegisterType<TwitterService>().As<ITwitterService>();
             builder.RegisterType<MailService>().As<IMailService>();
+            builder.RegisterType<ArticleService>().As<IArticleService>();
+            builder.RegisterType<CategoryService>().As<ICategoryService>();
+           
+           // builder.RegisterType<ServiceBase>().As<IServiceBase();
             return builder;
         }
     }

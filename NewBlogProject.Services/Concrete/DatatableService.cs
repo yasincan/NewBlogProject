@@ -1,14 +1,4 @@
-﻿
-using NewBlogProject.Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-
-namespace NewBlogProject.Services.Concrete
+﻿namespace NewBlogProject.Services.Concrete
 {
     public class DatatableService
     {

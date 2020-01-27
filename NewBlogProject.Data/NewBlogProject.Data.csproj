@@ -53,8 +53,10 @@
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IUnitOfWork.cs" />
+    <Compile Include="Attributes\LocalizedDescription.cs" />
     <Compile Include="BlogContext.cs" />
-    <Compile Include="Extentions\ServiceExtentions.cs" />
+    <Compile Include="Enums\ResponseCode.cs" />
+    <Compile Include="Extensions\ServiceExtension.cs" />
     <Compile Include="Migrations\201905310706392_Initial.cs" />
     <Compile Include="Migrations\201905310706392_Initial.Designer.cs">
       <DependentUpon>201905310706392_Initial.cs</DependentUpon>
@@ -92,6 +94,10 @@
     <ProjectReference Include="..\NewBlogProject.Entity\NewBlogProject.Entity.csproj">
       <Project>{b6f70140-165b-4e2a-b889-36fbcab76969}</Project>
       <Name>NewBlogProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewBlogProject.Globalization\NewBlogProject.Globalization.csproj">
+      <Project>{60898B40-9259-47CA-8E7E-2EBE001AE03A}</Project>
+      <Name>NewBlogProject.Globalization</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

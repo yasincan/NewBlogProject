@@ -101,7 +101,7 @@
     <Compile Include="Concrete\FileUploadManager.cs" />
     <Compile Include="Concrete\MailService.cs" />
     <Compile Include="Concrete\TwitterService.cs" />
-    <Compile Include="Extentions\ServiceExtentions.cs" />
+    <Compile Include="Extensions\ServiceLayerExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

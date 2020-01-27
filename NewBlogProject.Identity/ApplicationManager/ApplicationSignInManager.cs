@@ -7,7 +7,7 @@ namespace NewBlogProject.Identity.ApplicationManager
 {
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
-        public ApplicationSignInManager(ApplicationUserManager userManager,IAuthenticationManager authenticationManager):base(userManager,authenticationManager)
+        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) : base(userManager, authenticationManager)
         {
 
         }

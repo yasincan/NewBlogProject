@@ -61,11 +61,29 @@ namespace NewBlogProject.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktif.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aktif/Pasif.
         /// </summary>
         public static string ActivePasive {
             get {
                 return ResourceManager.GetString("ActivePasive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Api hata..
+        /// </summary>
+        public static string ApiError {
+            get {
+                return ResourceManager.GetString("ApiError", resourceCulture);
             }
         }
         
@@ -79,11 +97,119 @@ namespace NewBlogProject.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Makale ekle.
+        /// </summary>
+        public static string ArticleAdd {
+            get {
+                return ResourceManager.GetString("ArticleAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makaleyi silmek istediğinizden emin misiniz?.
+        /// </summary>
+        public static string ArticleDeleteMessage {
+            get {
+                return ResourceManager.GetString("ArticleDeleteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makale Düzenle.
+        /// </summary>
+        public static string ArticleEdit {
+            get {
+                return ResourceManager.GetString("ArticleEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makaleler.
+        /// </summary>
+        public static string Articles {
+            get {
+                return ResourceManager.GetString("Articles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Listeye git.
+        /// </summary>
+        public static string BacktoList {
+            get {
+                return ResourceManager.GetString("BacktoList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoriler.
+        /// </summary>
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategori.
         /// </summary>
         public static string Category {
             get {
                 return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen parmetreleri kontrol ediniz..
+        /// </summary>
+        public static string CheckRquestParameters {
+            get {
+                return ResourceManager.GetString("CheckRquestParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ekle.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oluşturulma Tarihi.
+        /// </summary>
+        public static string CreatedDate {
+            get {
+                return ResourceManager.GetString("CreatedDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Makale Ekle.
+        /// </summary>
+        public static string CreateNewArticle {
+            get {
+                return ResourceManager.GetString("CreateNewArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sil.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Silinme Tarihi.
+        /// </summary>
+        public static string DeletedDate {
+            get {
+                return ResourceManager.GetString("DeletedDate", resourceCulture);
             }
         }
         
@@ -97,11 +223,47 @@ namespace NewBlogProject.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detaylar.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Düzenle.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pasif.
+        /// </summary>
+        public static string Passive {
+            get {
+                return ResourceManager.GetString("Passive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resim.
         /// </summary>
         public static string Picture {
             get {
                 return ResourceManager.GetString("Picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kayıt No.
+        /// </summary>
+        public static string RecordNumber {
+            get {
+                return ResourceManager.GetString("RecordNumber", resourceCulture);
             }
         }
         
@@ -115,11 +277,29 @@ namespace NewBlogProject.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İşlem başarılıdır..
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Başlık.
         /// </summary>
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Güncelleme Tarihi.
+        /// </summary>
+        public static string UpdatedDate {
+            get {
+                return ResourceManager.GetString("UpdatedDate", resourceCulture);
             }
         }
     }

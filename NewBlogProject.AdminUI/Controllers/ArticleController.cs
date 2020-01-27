@@ -1,7 +1,6 @@
 ﻿using NewBlogProject.Entity.Entity;
 using NewBlogProject.Services.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,16 +17,13 @@ namespace NewBlogProject.AdminUI.Controllers
             _categoryService = categoryService;
         }
 
-        // GET: Articles
         [HttpGet]
         public ActionResult Index()
         {
             var articles = _articleService.Select();
             return View(articles);
-            //return Json(new { data },JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Articles/Details/5
         [HttpGet]
         public ActionResult Details(Guid id)
         {
@@ -35,7 +31,6 @@ namespace NewBlogProject.AdminUI.Controllers
             return View(article);
         }
 
-        // GET: Articles/Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -75,7 +70,6 @@ namespace NewBlogProject.AdminUI.Controllers
             return View(article);
         }
 
-        // GET: Articles/Edit/5
         [HttpGet]
         public ActionResult Edit(Guid id)
         {
@@ -97,7 +91,6 @@ namespace NewBlogProject.AdminUI.Controllers
             return View(article);
         }
 
-        // GET: Articles/Delete/5
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
@@ -105,7 +98,6 @@ namespace NewBlogProject.AdminUI.Controllers
             return View(article);
         }
 
-        // POST: Articles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)

@@ -1,15 +1,13 @@
 ﻿using NewBlogProject.Data.Abstract;
+using NewBlogProject.Entity.Entity;
 using NewBlogProject.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NewBlogProject.Entity.Entity;
 
 namespace NewBlogProject.Services.Concrete
 {
-    public class ServiceBase<T> : IServiceBase<T> where T : ModelBase , new()
+    public class ServiceBase<T> : IServiceBase<T> where T : ModelBase, new()
     {
         private readonly IUnitOfWork _unitOfWork;
         public ServiceBase(IUnitOfWork unitOfWork)

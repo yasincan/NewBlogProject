@@ -36,7 +36,7 @@ namespace NewBlogProject.Services.Concrete
 
         public IEnumerable<Category> Select()
         {
-            return _unitOfWork.Repository<Category>().Select().Where(c=>c.DeletedDate==null).OrderByDescending(c=>c.CreatedDate);
+            return _unitOfWork.Repository<Category>().Select().Where(c => c.DeletedDate == null).OrderByDescending(c => c.CreatedDate);
         }
 
         public IEnumerable<Category> ListCategory()

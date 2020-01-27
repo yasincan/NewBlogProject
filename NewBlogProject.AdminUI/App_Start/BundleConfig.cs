@@ -19,7 +19,7 @@ namespace NewBlogProject.AdminUI.App_Start
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.min.css",
-                "~/Content/Site.css", 
+                "~/Content/Site.css",
                 "~/Content/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/css/custom-style").Include("~/Content/style/custom-style.css"));

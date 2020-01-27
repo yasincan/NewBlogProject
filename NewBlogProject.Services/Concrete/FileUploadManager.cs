@@ -1,6 +1,4 @@
-﻿using NewBlogProject.Entity.Entity;
-using NewBlogProject.Services.Abstract;
-using System;
+﻿using NewBlogProject.Services.Abstract;
 using System.IO;
 using System.Web;
 
@@ -20,6 +18,6 @@ namespace NewBlogProject.Services.Concrete
             }
             string filePath = Path.Combine(directoryPath, fileName);
             file.SaveAs(filePath);
-        }       
+        }
     }
 }

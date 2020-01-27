@@ -4,16 +4,18 @@ using NewBlogProject.WebAPI.Attributes;
 using NewBlogProject.WebAPI.Models.ResponseModel;
 using PagedList;
 using System;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Web.Http.Results;
+using System.Net;
+using NewBlogProject.Data.Enums;
 
 namespace NewBlogProject.WebAPI.Controllers
 {
     [ApiExceptionFilter]
     public class ArticleController : ApiController
     {
-        internal readonly IArticleService _articleService;
+        private readonly IArticleService _articleService;
         //internal readonly ICacheService _cacheService;
 
         public ArticleController(IArticleService articleService/*, ICacheService cacheService*/)
@@ -28,7 +30,7 @@ namespace NewBlogProject.WebAPI.Controllers
         {
             //string cacheKey = "cache-articles";
             //if (_cacheService.IsExist(cacheKey))
-            //{
+            //{ 
             //    return _cacheService.Get(cacheKey) as ResponseModel<IPagedList<Article>>;
             //}
 
@@ -36,10 +38,10 @@ namespace NewBlogProject.WebAPI.Controllers
             var response = new ResponseModel<IPagedList<Article>>()
             {
                 Data = data ?? null,
-                ResponseCode= ResponseCode.Success
+                ResponseCode = ResponseCode.Success
             };
 
-           // _cacheService.Set(cacheKey, response, 20);
+            // _cacheService.Set(cacheKey, response, 20);
 
             return Json(data);
 
@@ -58,19 +60,36 @@ namespace NewBlogProject.WebAPI.Controllers
             return Json(response);
         }
 
-      
-        public void ArticleAdd([FromBody]Article article)
+
+        public HttpResponseMessage ArticleAdd([FromBody]Article article)
         {
-            
+            HttpResponseMessage response;
+            if (!ModelState.IsValid)
+            {
+                response = Request.CreateResponse(HttpStatusCode.Created);
+                //new ResponseModel<object>
+                //{
+                //    Data = null,
+                //    ResponseCode = ResponseCode.CheckRquestParameters
+                //}
+            }
+            else
+            {
+                _articleService.Insert(article, null);
+                response = Request.CreateResponse(HttpStatusCode.OK, new ResponseModel<object>
+                {
+                    Data = null,
+                    ResponseCode = ResponseCode.CheckRquestParameters
+                });
+            }
+            return response;
+
+
+
         }
 
-        public void ArticleUpdate(int id, [FromBody]string value)
+        public void ArticleUpdate([FromBody]Article article)
         {
         }
-
-        //// DELETE api/<controller>/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

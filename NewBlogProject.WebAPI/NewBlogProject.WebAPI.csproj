@@ -125,11 +125,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\ApiExceptionFilter.cs" />
     <Compile Include="AutofacDependecyBuilder.cs" />
+    <Compile Include="Constraints\LastLetter.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ResponseModel\ResponseCode.cs" />
     <Compile Include="Models\ResponseModel\ResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,7 +148,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewBlogProject.Data\NewBlogProject.Data.csproj">
@@ -157,6 +157,10 @@
     <ProjectReference Include="..\NewBlogProject.Entity\NewBlogProject.Entity.csproj">
       <Project>{b6f70140-165b-4e2a-b889-36fbcab76969}</Project>
       <Name>NewBlogProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewBlogProject.Globalization\NewBlogProject.Globalization.csproj">
+      <Project>{60898b40-9259-47ca-8e7e-2ebe001ae03a}</Project>
+      <Name>NewBlogProject.Globalization</Name>
     </ProjectReference>
     <ProjectReference Include="..\NewBlogProject.Services\NewBlogProject.Services.csproj">
       <Project>{17284757-9b7c-4343-9175-df104e579a09}</Project>

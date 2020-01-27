@@ -6,7 +6,6 @@ using NewBlogProject.Identity.Models;
 using NewBlogProject.Identity.Models.ViewModel;
 using NewBlogProject.Models.ResponseModels;
 using NewBlogProject.Services.Abstract;
-using NewBlogProject.Services.Concrete;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;

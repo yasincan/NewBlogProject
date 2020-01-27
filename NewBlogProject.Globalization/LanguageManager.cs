@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Web;
-using System.Threading.Tasks;
 
 namespace NewBlogProject.Globalization
 {
@@ -35,9 +33,11 @@ namespace NewBlogProject.Globalization
                 var cultureInfo = new CultureInfo(lang);
                 Thread.CurrentThread.CurrentUICulture = cultureInfo;
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
-                HttpCookie langCookie = new HttpCookie("culture", lang);
-                langCookie.Expires = DateTime.Now.AddDays(1);
-                HttpContext.Current.Response.Cookies.Add(langCookie);
+                HttpContext.Current.Response.Cookies.Add(
+                    new HttpCookie("culture", lang)
+                    {
+                        Expires = DateTime.Now.AddDays(1)
+                    });
             }
             catch (Exception) { }
         }

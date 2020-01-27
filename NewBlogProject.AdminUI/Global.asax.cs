@@ -1,11 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using NewBlogProject.AdminUI.App_Start;
-using NewBlogProject.Data.Extentions;
+using NewBlogProject.Data.Extensions;
 using NewBlogProject.Services.Abstract;
 using NewBlogProject.Services.Concrete;
-using NewBlogProject.Services.Extentions;
-using System.Reflection;
+using NewBlogProject.Services.Extensions;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -22,11 +21,7 @@ namespace NewBlogProject.AdminUI
 
 
             builder.RegisterDataLayer();
-            builder.RegisterBusinesLayer();
-            builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
-            builder.RegisterType<ArticleService>().As<IArticleService>();
-           // builder.RegisterType<MailService>().As<IMailService>();
-
+            builder.RegisterServiceLayer();
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

@@ -7,17 +7,15 @@ namespace NewBlogProject.Entity.Entity
     public class ModelBase : IModelBase
     {
         public Guid Id { get; set; }
-        [Display(Name = "Silinme Tarihi")]
+        [Display(ResourceType =typeof(Globalization.Resource), Name = "DeletedDate")]
 
         public DateTime? DeletedDate { get; set; }
 
-        
-        [Display(Name = "Oluşturulma Tarihi")]
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "CreatedDate")]
         //[DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}",ApplyFormatInEditMode =true)]
         public DateTime CreatedDate { get; set; }
 
- 
-        [Display(Name = "Güncelleme Tarihi")]
+        [Display(ResourceType = typeof(Globalization.Resource), Name = "UpdatedDate")]
         //[DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode =true)]
         public DateTime? UpdatedDate { get; set; }
     }

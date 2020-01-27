@@ -1,7 +1,7 @@
 ﻿@model Article
 
 @{
-    ViewBag.Title = "Makale ekle";
+    ViewBag.Title = @NewBlogProject.Globalization.Resource.ArticleAdd;
 }
 @using (Html.BeginForm("Create", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -89,7 +89,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Ekle" class="btn btn-light" />
+                    <input type="submit" value="@NewBlogProject.Globalization.Resource.Create" class="btn btn-light" />
                 </div>
             </div>
 
@@ -97,7 +97,7 @@
     </div>
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@NewBlogProject.Globalization.Resource.BacktoList, "Index")
 </div>
 
 

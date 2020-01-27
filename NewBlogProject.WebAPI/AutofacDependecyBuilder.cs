@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using NewBlogProject.Data.Extentions;
+using NewBlogProject.Data.Extensions;
 using NewBlogProject.Services.Abstract;
 using NewBlogProject.Services.Concrete;
-using NewBlogProject.Services.Extentions;
+using NewBlogProject.Services.Extensions;
 using System.Reflection;
 using System.Web.Http;
 
@@ -21,18 +21,15 @@ namespace NewBlogProject.WebAPI
             // OPTIONAL: Register the Autofac filter provider.
             builder.RegisterWebApiFilterProvider(config);
 
-            // This will register the required service class object in above snippets.
-          
-            builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
-            builder.RegisterType<ArticleService>().As<IArticleService>();
-            builder.RegisterType<CaptchaService>().As<ICaptchaService>();
+            builder.RegisterDataLayer();
+            builder.RegisterServiceLayer();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
 
-        //-----------------------------------------------------------------
+            //-----------------------------------------------------------------
 
 
 

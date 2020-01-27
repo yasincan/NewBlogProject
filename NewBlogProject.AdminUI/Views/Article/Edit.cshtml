@@ -1,7 +1,7 @@
 ﻿@model Article
 
 @{
-    ViewBag.Title = "Düzenle | " + Model.Title;
+    ViewBag.Title = @NewBlogProject.Globalization.Resource.Edit +" | " + Model.Title;
 }
 
 @using (Html.BeginForm("Edit", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Makale Düzenle</h4>
+        <h4>@NewBlogProject.Globalization.Resource.ArticleEdit</h4>
         <hr />
         @Html.HiddenFor(model => model.Id)
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -68,13 +68,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Düzenle" class="btn btn-light" />
+                <input type="submit" value="@NewBlogProject.Globalization.Resource.Edit" class="btn btn-light" />
             </div>
         </div>
     </div>
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@NewBlogProject.Globalization.Resource.BacktoList, "Index")
 </div>
 
 @section scripts{

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewBlogProject.Test
 {
@@ -74,9 +70,9 @@ namespace NewBlogProject.Test
             {
                 return new List<Type>(item);
             }
-          
+
         }
-        
+
         class Test
         {
             public int ID { get; set; }

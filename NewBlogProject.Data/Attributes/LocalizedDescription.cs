@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NewBlogProject.Entity.Attributes
+namespace NewBlogProject.Data.Attributes
 {
 
-    public class LocalizedDescriptionAttribute:DescriptionAttribute
+    public class LocalizedDescription : DescriptionAttribute
     {
-        internal readonly ResourceManager _resourceManager;
-        internal readonly string _resourceKey;
-        
-        public LocalizedDescriptionAttribute(string resourceKey, Type resoruceType)
-        {
+        private readonly ResourceManager _resourceManager;
+        private readonly string _resourceKey;
+
+        public LocalizedDescription(Type resoruceType, string resourceKey) 
+        { 
             _resourceManager = new ResourceManager(resoruceType);
             _resourceKey = resourceKey;
         }

@@ -1,7 +1,6 @@
 ﻿using NewBlogProject.Entity.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 namespace NewBlogProject.Services.Abstract
